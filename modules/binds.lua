@@ -7,7 +7,7 @@ local terminal    = "kitty"
 local explorer    = "thunar"
 local browser     = "firefox"
 local switcher    = "rofi -show drun -no-show-match"
-local lockscreen  = "hyprlock --grace 5"
+local lockscreen  = "hyprlock --grace 10"
 
 
 ---------------------

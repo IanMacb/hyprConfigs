@@ -10,15 +10,3 @@ require("modules.layout")
 require("modules.misc")
 require("modules.input")
 require("modules.windowrules")
-
-
---module windows on press
---quickshell
-
---monitor flipping
-
---keychain
---fingerprint reader
-
---clipboard manager
---cursor
