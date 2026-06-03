@@ -9,7 +9,6 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "Nordzy-cursors")
 hl.env("HYPRCURSOR_THEME", "MyCursor")
 hl.env("HYPRCURSOR_SIZE", "24")
--- hl.env("HYPRLOCK_BACKGROUND", "")
 
 --Toolkit backend
 hl.env("GDK_BACKEND", "wayland,x11,*")

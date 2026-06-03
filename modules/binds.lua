@@ -39,6 +39,7 @@ hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 --reload waybar
 hl.bind("SUPER + R", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
 -- hl.bind("SUPER + R", hl.dsp.exec_cmd("dunstctl reload"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" | wl-copy'))
 
 --Launch apps
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(switcher))

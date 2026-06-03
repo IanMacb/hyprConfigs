@@ -40,10 +40,11 @@ hl.window_rule({
 })
 
 --make windows default float
-hl.window_rule({match = {class = "org.pulseaudio.pavucontrol"}, float = true})
+hl.window_rule({match = {class = "org.pulseaudio.pavucontrol"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
 hl.window_rule({match = {class = "com.network.manager"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
-hl.window_rule({match = {class = "blueman-manager"}, float = true})
+hl.window_rule({match = {class = "blueman-manager"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
 
+-- When creating a new scrathpad workspace, open a kitty window
 hl.workspace_rule({
     workspace = "special:magic", on_created_empty="kitty"
 })
