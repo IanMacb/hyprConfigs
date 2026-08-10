@@ -9,7 +9,7 @@ local browser    = "firefox"
 local switcher   = "rofi -show drun -no-show-match"
 local lockscreen = "hyprlock --grace 3"
 local log_out    = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
-local power_menu = ""
+local power_menu = "rofi -show p -modes 'p:~/.config/rofi/rofi-power-menu --choices=lockscreen/logout/reboot/shutdown'"
 
 
 ---------------------
@@ -22,8 +22,7 @@ local power_menu = ""
 hl.bind("SUPER + L", hl.dsp.exec_cmd(lockscreen))
 hl.bind("SUPER + SHIFT + L", hl.dsp.exec_cmd(log_out))
 hl.bind("SUPER + SHIFT + X", hl.dsp.dpms("toggle"))
--- WIP open power menu
--- hl.bind("SUPER + X", hl.dsp.exec_cmd(""))
+hl.bind("SUPER + X", hl.dsp.exec_cmd(power_menu))
 
 --Window management
 hl.bind("SUPER + Q", hl.dsp.window.close())
@@ -50,10 +49,7 @@ hl.bind("SUPER + R", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
 -- hl.bind("SUPER + R", hl.dsp.exec_cmd("dunstctl reload"))
 
 -- screenshot
-hl.bind("Print", function()
-	local monitor = tostring(hl.get_active_monitor().name)
-	hl.dsp.exec_cmd('grim -o ' .. monitor .. ' $HOME/Pictures/Screenshots/$(date +"%s_grim.png" | wl-copy')
-end)
+hl.bind("Print", hl.dsp.exec_cmd('grim "$HOME/Pictures/Screenshots/$(date +%s_grim.png)" | wl-copy'))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd('grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +"%s_grim.png") | wl-copy'))
 
 --Launch apps
@@ -64,6 +60,9 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd(explorer))
 -- Move window to next/prev workspace
 hl.bind("SUPER + SHIFT + left", hl.dsp.window.move({ workspace = "-1" }))
 hl.bind("SUPER + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }))
+-- Move window silently
+hl.bind("SUPER + ALT + left", hl.dsp.window.move({ workspace = "-1", follow = false }))
+hl.bind("SUPER + ALT + right", hl.dsp.window.move({ workspace = "+1", follow = false }))
 
 -- Switch workspaces with SUPER + [0-9]
 -- Move active window to a workspace with SUPER + SHIFT + [0-9]
@@ -89,11 +88,6 @@ hl.bind("SUPER + mouse:275", hl.dsp.focus({ workspace = "+1" }))
 -- hl.bind("mouse:276 + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 -- hl.bind("mouse:276 + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 -- hl.bind("mouse:276", hl.dsp.submap("workspace_scroll"))
--- hl.define_submap("workspace_scroll", function()
---     hl.bind("mouse_up", hl.dsp.focus({ workspace = "e+1" }))
---     hl.bind("mouse_down", hl.dsp.focus({ workspace = "e-1" }))
---     hl.bind("mouse:276", hl.dsp.submap("reset"))
--- end)
 
 -- Step through workspaces with SUPER + Tab
 hl.bind("SUPER + Tab", hl.dsp.focus({ workspace = "+1" }))
@@ -141,8 +135,6 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("/home/$USER/.local/bin/brightnes
     { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("/home/$USER/.local/bin/brightnessControl.sh down 10"),
     { locked = true, repeating = true })
-
--- Toggle monitor brightness
 
 
 -- Requires playerctl

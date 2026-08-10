@@ -40,9 +40,10 @@ hl.window_rule({
 -- })
 
 -- on fullscreen, move app to next empty workspace WIP
-hl.on("window.fullscreen", function()
-    hl.dsp.window.move({ workspace = "emptyn"})
-end)
+-- hl.on("window.fullscreen", function()
+--     hl.dsp.window.move({ workspace = "emptyn"})
+-- end)
+hl.window_rule({match = {fullscreen_state_client = 2},  workspace = "emptyn"})
 
 --make windows default float
 hl.window_rule({match = {class = "org.pulseaudio.pavucontrol"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
@@ -58,6 +59,3 @@ hl.workspace_rule({workspace = "r[1-9]", monitor = "DP-1"})
 hl.workspace_rule({workspace = "r[10-14]", monitor = "DP-2"})
 -- hl.workspace_rule({workspace = "1", monitor = "DP-1", default = true})
 hl.workspace_rule({workspace = "10", monitor = "DP-2", default = true})
-
--- Put startup apps on specific workspaces
--- hl.workspace_rule({workspace = "11", })
