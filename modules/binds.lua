@@ -70,7 +70,12 @@ for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
     hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind("SUPER + ALT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
+
+-- Focus switch monitors
+hl.bind("SUPER + W", hl.dsp.focus({ monitor = "+1"}))
+-- hl.bind("SUPER + ", hl.dsp.focus({ monitor = "-1"}))
 
 -- special workspace (scratchpad)
 hl.bind("SUPER + Z", hl.dsp.workspace.toggle_special("scratchpad"))
@@ -81,13 +86,16 @@ hl.bind("SUPER + left", hl.dsp.focus({ workspace = "-1" }))
 hl.bind("SUPER + right", hl.dsp.focus({ workspace = "+1" }))
 
 -- Scroll through workspaces with SUPER + mouse fwd/bac
-hl.bind("SUPER + mouse:277", hl.dsp.focus({ workspace = "-1" }))
-hl.bind("SUPER + mouse:275", hl.dsp.focus({ workspace = "+1" }))
---
+hl.bind("SUPER + mouse:277", hl.dsp.focus({ workspace = "+1" }))
+hl.bind("SUPER + mouse:275", hl.dsp.focus({ workspace = "-1" }))
+
 -- Scroll through workspaces with front mouse + scrollwheel
--- hl.bind("mouse:276 + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
--- hl.bind("mouse:276 + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
--- hl.bind("mouse:276", hl.dsp.submap("workspace_scroll"))
+-- hl.bind("mouse:276 + mouse_up", hl.dsp.focus({ workspace = "-1" }))
+-- hl.bind("mouse:276 + mouse_down", hl.dsp.focus({ workspace = "+1" }))
+
+-- Scroll workspaces with SUPER + mouse wheel
+-- hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "-1", repeating = true }))
+-- hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "+1", repeating = true}))
 
 -- Step through workspaces with SUPER + Tab
 hl.bind("SUPER + Tab", hl.dsp.focus({ workspace = "+1" }))
@@ -130,7 +138,8 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
 -- hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e1 -n2 set 10%-"),                  { locked = true, repeating = true })
 -- hl.bind("SUPER + XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e1 -n2 set 100%-"),                  { locked = true, repeating = true })
 
---Brightness controls using ~/.local/bin/brightnessControl.sh
+-- Brightness controls using ~/.local/bin/brightnessControl.sh
+-- TODO full on long press
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("/home/$USER/.local/bin/brightnessControl.sh up 10"),
     { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("/home/$USER/.local/bin/brightnessControl.sh down 10"),

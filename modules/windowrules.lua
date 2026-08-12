@@ -43,7 +43,7 @@ hl.window_rule({
 -- hl.on("window.fullscreen", function()
 --     hl.dsp.window.move({ workspace = "emptyn"})
 -- end)
-hl.window_rule({match = {fullscreen_state_client = 2},  workspace = "emptyn"})
+-- hl.window_rule({match = {fullscreen_state_client = 2},  workspace = "emptyn"})
 
 --make windows default float
 hl.window_rule({match = {class = "org.pulseaudio.pavucontrol"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
@@ -55,7 +55,7 @@ hl.window_rule({match = {class = "blueman-manager"}, float = true, pin = true, s
 hl.workspace_rule({workspace = "special:scratchpad", on_created_empty="kitty"})
 
 -- Assign workspaces to each monitor
-hl.workspace_rule({workspace = "r[1-9]", monitor = "DP-1"})
-hl.workspace_rule({workspace = "r[10-14]", monitor = "DP-2"})
--- hl.workspace_rule({workspace = "1", monitor = "DP-1", default = true})
-hl.workspace_rule({workspace = "10", monitor = "DP-2", default = true})
+hl.workspace_rule({workspace = "r[1-10]", monitor = "DP-1"})
+hl.workspace_rule({workspace = "r[11-14]", monitor = "DP-2"})
+hl.workspace_rule({workspace = "1", monitor = "DP-1", default = true})
+hl.workspace_rule({workspace = "11", monitor = "DP-2", default = true})
