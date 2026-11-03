@@ -80,6 +80,7 @@ hl.bind("SUPER + W", hl.dsp.focus({ monitor = "+1"}))
 -- special workspace (scratchpad)
 hl.bind("SUPER + Z", hl.dsp.workspace.toggle_special("scratchpad"))
 hl.bind("SUPER + SHIFT + Z", hl.dsp.window.move({ workspace = "special:scratchpad" }))
+hl.bind("SUPER + ALT + Z", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 
 -- Cycle workspaces with SUPER + arrow
 hl.bind("SUPER + left", hl.dsp.focus({ workspace = "-1" }))
