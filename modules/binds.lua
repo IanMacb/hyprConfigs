@@ -70,11 +70,13 @@ for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
     hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind("SUPER + ALT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 -- special workspace (scratchpad)
 hl.bind("SUPER + Z", hl.dsp.workspace.toggle_special("scratchpad"))
 hl.bind("SUPER + SHIFT + Z", hl.dsp.window.move({ workspace = "special:scratchpad" }))
+hl.bind("SUPER + ALT + Z", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 
 -- Cycle workspaces with SUPER + arrow
 hl.bind("SUPER + left", hl.dsp.focus({ workspace = "-1" }))
