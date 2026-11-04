@@ -46,10 +46,10 @@ hl.window_rule({
 -- hl.window_rule({match = {fullscreen_state_client = 2},  workspace = "emptyn"})
 
 --make windows default float
-hl.window_rule({match = {class = "org.pulseaudio.pavucontrol"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
-hl.window_rule({match = {class = "com.saivert.pwvucontrol"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
-hl.window_rule({match = {class = "com.network.manager"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
-hl.window_rule({match = {class = "blueman-manager"}, float = true, pin = true, size = {500, 400}, move = {"(monitor_w-520)", "(30)"}})
+hl.window_rule({match = {class = "org.pulseaudio.pavucontrol"},     float = true, pin = true, size = {650, 450}, move = {"(monitor_w-670)", "(50)"}, })
+hl.window_rule({match = {class = "com.saivert.pwvucontrol"},        float = true, pin = true, size = {650, 450}, move = {"(monitor_w-670)", "(50)"}, })
+hl.window_rule({match = {class = "com.network.manager"},            float = true, pin = true, size = {650, 450}, move = {"(monitor_w-670)", "(50)"}, })
+hl.window_rule({match = {class = "blueman-manager"},                float = true, pin = true, size = {650, 450}, move = {"(monitor_w-670)", "(50)"}, })
 
 -- When creating a new scrathpad workspace, open a kitty window
 hl.workspace_rule({workspace = "special:scratchpad", on_created_empty="kitty"})

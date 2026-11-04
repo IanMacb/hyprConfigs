@@ -26,7 +26,7 @@ hl.bind("SUPER + X", hl.dsp.exec_cmd(power_menu))
 
 --Window management
 hl.bind("SUPER + Q", hl.dsp.window.close())
-hl.bind("SUPER + A", hl.dsp.window.fullscreen({ mode = "maximized" }, { action = "toggle" }))
+hl.bind("SUPER + A", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind("SUPER + S", hl.dsp.window.swap({ next = "" }))
 hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ monitor = "+1" }))
 -- show desktop
